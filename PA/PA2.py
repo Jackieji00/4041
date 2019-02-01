@@ -13,7 +13,13 @@ enable_turtle = True
 #Doesn't return anything.
 def insertion_sort(shape_list):
     #TODO: Implement this function.
-    pass
+    for i in range(1,len(shape_list)):
+        key = shape_list[i]
+        j = i-1
+        while j>=0 and key.depth>shape_list[j].depth:
+            shape_list[j+1] = shape_list[j]
+            j -= 1
+        shape_list[j+1] = key
 
 #  DO NOT EDIT BELOW THIS LINE
 
@@ -22,7 +28,7 @@ if enable_turtle:
     t = turtle.Turtle()
 
 #Takes a list of Rectangle objects shape_list, and a turtle object t.
-#Draw a single scene using turtle graphics.  
+#Draw a single scene using turtle graphics.
 def draw_scene(shape_list,t):
     insertion_sort(shape_list)
     if enable_turtle:
@@ -125,6 +131,3 @@ except Exception:
     print("\nFAIL: ",traceback.format_exc())
 
 print(count,"out of",len(tests),"tests passed.")
-
-
-
