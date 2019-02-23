@@ -1,6 +1,6 @@
 import traceback
 
-        
+
 
 #SortStudents function. Takes as input a list of Student objects,
 #sorted alphabetically by name (last, then first), and outputs a list of
@@ -8,8 +8,41 @@ import traceback
 #house, then year, then name.
 def SortStudents(studentList):
     #TODO: Implement this function
-    return studentList
-
+    if len(studentList) ==1 or len(studentList) ==0:
+        return studentList
+    return Counting_Sort(studentList)
+def Counting_Sort(A):
+    # letters = {'a':0,'b':1,'c':2,'d':3,'e':4,'f':5,'g':6,'h':7,'i':8,'j':9,
+    # 'k':10,'l':11,'m':12,'n':13,'o':14,'p':15,'q':16,'r':17,'s':18,'t':19,
+    # 'u':20,'v':21,'w':22,'x':23,'y':24,'z':25}
+    house = {'Eagletalon':0,'Lannister':1,'Pufflehuff':2,'SNAKES':3}
+    out = [0]*len(A)
+    fout = [0]*len(A)
+    h = [0]*4
+    y = [0]*9
+    # for ho in range(4):#count list for house
+    #     h[ho] = 0
+    # for yr in range(9):#count list for year
+    #     y[yr] = 0
+    for j in range(len(A)):
+        h[house[A[j].house]] += 1
+        y[A[j].year] += 1
+    for i in range(1,9):
+        y[i] += y[i-1]
+    for ij in range(1,4):
+        h[ij] += h[ij-1]
+    st = len(A)
+    while st !=0:
+        st-=1
+        # print(y[A[st].year],'\n',out)
+        out[y[A[st].year]-1]=A[st]
+        y[A[st].year] -= 1
+    sth = len(A)
+    while sth !=0:
+        sth-=1
+        fout[h[house[out[sth].house]]-1] = out[sth]
+        h[house[out[sth].house]] -= 1
+    return fout
 
 
 
@@ -35,7 +68,7 @@ class Student:
                self.house == other.house and \
                self.year == other.year
 
-      
+
 
 
 
@@ -104,5 +137,3 @@ print()
 if cursed:
     print("You are now a newt.  Don't worry, you'll get better.")
 print(count,"out of",len(tests),"tests passed.")
-
-
