@@ -6,7 +6,7 @@ import traceback, turtle, time, math
 draw_delay = 0.0
 
 #Set this to False to turn off turtle entirely.
-enable_turtle = False
+enable_turtle = True
 
 #insert_floor: Takes FloorTree (BST) object floor_tree, and FloorNode object
 #   floor, and inserts floor into floor_tree.  Doesn't return anything.
