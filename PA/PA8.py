@@ -4,7 +4,7 @@ import turtle, time, traceback
 draw_delay = 0.1
 
 #Set this to False to turn off turtle entirely.
-enable_turtle = True
+enable_turtle = False
 
 #insert_point: Takes KDTree object kd_tree, and Point object
 #   point, and inserts point into kd_tree.  Doesn't return anything.
