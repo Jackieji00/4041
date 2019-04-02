@@ -40,7 +40,10 @@ def optimize_wings(price_list,num_wings):
     rev.append([Order(0,0)])
     for j in range(num_wings+1):
         best = []
-        for i in range(len(price_list)):
+        n= j+1
+        if n > len(price_list):
+            n = len(price_list)
+        for i in range(n):
             # print("j:",j,"i:",i)
             if j>=(price_list[i].wings) and (calp(best)> price_list[i].price +calp(rev[j-(price_list[i].wings)]) or best == []):
                 best = rev[j-(price_list[i].wings)] + [price_list[i]]
