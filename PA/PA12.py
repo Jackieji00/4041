@@ -4,7 +4,7 @@ import traceback, turtle, time
 draw_delay = 0.05
 
 #Set this to False to turn off turtle entirely.
-enable_turtle = True
+enable_turtle = False
 
 #Takes as input a Square object node in a graph of Square nodes.
 # This will always be the Square node representing (0,0), the start position
